@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 interface Source {
   page: number;
@@ -43,7 +44,7 @@ export function useChatHistory() {
   const addMessage = (message: Omit<Message, "id" | "timestamp">) => {
     const newMessage: Message = {
       ...message,
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       timestamp: Date.now(),
     };
     setMessages((prev) => [...prev, newMessage]);
