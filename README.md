@@ -18,12 +18,14 @@ sudo apt install -y nginx
 
 #### Build Client
 
-```From Project Level
+```From Project Level (client)
+.env = "" # empty
+npm run build
 sudo mkdir -p ~/var/www/frontend
 sudo cp -r dist/* ~/var/www/frontend/
 ```
 
-```From Root Level
+```From Root Level (/)
 sudo mkdir -p /var/www
 sudo rm -rf /var/www/frontend
 sudo mv /home/ubuntu/var/www/frontend /var/www/
@@ -31,7 +33,7 @@ sudo mv /home/ubuntu/var/www/frontend /var/www/
 
 #### Run PM2
 
-```
+```inside /server
 pm2 start npm --name backend -- start
 ```
 
